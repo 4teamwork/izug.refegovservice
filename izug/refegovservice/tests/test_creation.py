@@ -47,3 +47,4 @@ class TestCreation(TestCase):
         self.assertTrue(pq('#content .documentFirstHeading'))
         self.assertTrue(len(pq('#content h2')) > 1, 'Expect some h2 tags')
         self.assertTrue(len(pq('#content p')) > 1, 'Expect some p tags')
+        self.assertTrue('No service found' not in self.browser.contents)
