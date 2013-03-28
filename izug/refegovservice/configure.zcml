@@ -5,9 +5,12 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="izug.refegovservice">
 
     <five:registerPackage package="." initialize=".initialize" />
+
+    <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
