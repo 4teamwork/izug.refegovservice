@@ -7,11 +7,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="izug.refegovservice">
 
-    <include package="z3c.autoinclude" file="meta.zcml" />
-    <includeDependencies package="." />
-
     <five:registerPackage package="." initialize=".initialize" />
-
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
@@ -22,14 +18,12 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
-
     <class class=".refegovservice.RefEgovService">
         <require
             permission="zope2.View"
             interface=".interfaces.IRefEgovService"
             />
     </class>
-
 
     <browser:page
         for="*"
@@ -44,6 +38,5 @@
         for="*"
         factory=".refegov_config.RevEgovConfig"
         />
-
 
 </configure>
