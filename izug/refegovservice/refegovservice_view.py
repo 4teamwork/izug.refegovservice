@@ -41,7 +41,8 @@ class RefEgovServiceView(BrowserView):
                     eCHserviceID=self.context.getECHserviceID(),
                     eCHlanguageID="DE",
                     eCHmunicipalityID="01711",
-                    eCHserviceVersionID=self.context.getECHserviceVersionID(),)
+                    eCHserviceVersionID=self.context.getECHserviceVersionID(),
+                    )
 
             except (URLError, HTTPError, ServiceNotFound):
                 return self.ref_ch_cache['response']
@@ -63,28 +64,22 @@ class RefEgovServiceView(BrowserView):
 
             try:
                 rtitle = response.infoBlock.serviceInfo.eCHservice.content
-                title = self.context.Title()
                 response_dict['title'] = [
-                    rtitle and rtitle.encode('utf8').decode('utf8') or title]
+                    rtitle and rtitle.encode('utf8').decode('utf8') or self.context.Title()]
                 if 'generalInformationBlock' in response:
                     block = response['generalInformationBlock']
                     if 'generalInformation' in block:
-                        response_dict[block._label] = [
-                            block['generalInformation']]
+                        response_dict[block._label] = [block['generalInformation']]
 
                 if 'prerequisiteBlock' in response:
                     block = response['prerequisiteBlock']
                     if 'prerequisite' in block:
-                        response_dict[block._label] = [
-                            cc.description for cc in block['prerequisite']
-                                if cc.description]
+                        response_dict[block._label] = [cc.description for cc in block['prerequisite'] if cc.description]
 
                 if 'procedureBlock' in response:
                     block = response['procedureBlock']
                     if 'procedure' in block:
-                        response_dict[block._label] = [
-                            cc.description for cc in block['procedure']
-                                if cc.description]
+                        response_dict[block._label] = [cc.description for cc in block['procedure'] if cc.description]
 
                 if 'formularBlock' in response:
                     block = response['formularBlock']
@@ -92,13 +87,11 @@ class RefEgovServiceView(BrowserView):
                         response_dict[block._label] = []
                         for row in block['formular']:
                             try:
-                                html = "<a href='%s'>%s</a><div>%s</div>"
-                                content = html % (
-                                    row._uri, row.formularName,
-                                    row.description)
+                                content = "<a href='%s'>%s</a><div>%s</div>" % (
+                                    row._uri, row.formularName, row.description)
                                 response_dict[block._label].append(content)
                             except AttributeError:
-                                pass  # here is no uri name or description
+                                pass #there is no uri name or description
 
                 if 'documentRequiredBlock' in response:
                     block = response['documentRequiredBlock']
@@ -107,21 +100,17 @@ class RefEgovServiceView(BrowserView):
                         for row in block['document']:
                             try:
                                 if '_uri' in row and 'documentName' in row:
-                                    html = "<a href='%s'>%s</a><div>%s</div>"
-                                    content = html % (
-                                        row._uri, row.documentName,
-                                        row.description)
+                                    content = "<a href='%s'>%s</a><div>%s</div>" % (
+                                        row._uri, row.documentName, row.description)
                                     response_dict[block._label].append(content)
-                                elif 'description' in row and \
-                                    'documentName' in row:
+                                elif 'description' in row and 'documentName' in row:
                                     content = "%s<div>%s</div>" % (
                                         row.documentName, row.description)
                                     response_dict[block._label].append(content)
                                 elif 'description' in row:
-                                    response_dict[block._label].append(
-                                        row.description)
+                                    response_dict[block._label].append(row.description)
                             except AttributeError:
-                                pass  # There is no uri name or description
+                                pass #there is no uri name or description
 
                 if 'resultBlock' in response:
                     block = response['resultBlock']
@@ -139,22 +128,14 @@ class RefEgovServiceView(BrowserView):
                         response_dict[block._label] = []
                         for row in block['legalRegulation']:
                             try:
-                                if '_uri' in row and 'documentName' in row:
-                                    html = "<a href='%s'>%s</a><div>%s</div>"
-                                    content = html % (
-                                        row._uri, row.documentName,
-                                        row.description)
-                                    response_dict[block._label].append(content)
-                                elif 'description' in row and \
-                                    'documentName' in row:
-                                    content = "%s<div>%s</div>" % (
-                                        row.documentName, row.description)
+                                if '_uri' in row and 'description' in row:
+                                    content = "<a href='%s'>%s</a>" % (
+                                        row._uri, row.description)
                                     response_dict[block._label].append(content)
                                 elif 'description' in row:
-                                    response_dict[block._label].append(
-                                        row.description)
+                                    response_dict[block._label].append(row.description)
                             except AttributeError:
-                                pass  # There is no uri name or description
+                                pass #there is no uri name or description
 
                 if 'documentOtherBlock' in response:
                     block = response['documentOtherBlock']
@@ -162,13 +143,11 @@ class RefEgovServiceView(BrowserView):
                         response_dict[block._label] = []
                         for row in block['document']:
                             try:
-                                html = "<a href='%s'>%s</a><div>%s</div>"
-                                content = html % (
-                                    row._uri, row.documentName,
-                                    row.description)
+                                content = "<a href='%s'>%s</a><div>%s</div>" % (
+                                    row._uri, row.documentName, row.description)
                                 response_dict[block._label].append(content)
                             except AttributeError:
-                                pass  # There is no uri name or description
+                                pass #there is no uri name or description
 
                 if 'remarkBlock' in response:
                     block = response['remarkBlock']
@@ -180,34 +159,12 @@ class RefEgovServiceView(BrowserView):
                     if 'approbation' in block:
                         response_dict[block._label] = [block['approbation']]
 
-                if 'contactBlock' in response:
-                    block = response['contactBlock']
-                    response_dict[block._label] = []
-                    if 'contact' in block:
-                        for contact in block['contact']:
-                            plz = ''
-                            for row in contact:
-                                if 'content' in row[1] and row[1].content:
-                                    if row[0] == 'postalCode':
-                                        plz = row[1].content
-                                    elif row[0] == 'municipality':
-                                        plz += ' %s' % row[1].content
-                                        response_dict[block._label].append(plz)
-                                    else:
-                                        response_dict[block._label].append(
-                                            row[1].content)
-                            if 'openingHours' in contact and \
-                                contact.openingHours:
-
-                                response_dict[block._label].append(
-                                    '<br />'.join(contact.openingHours))
-
                 result = {}
                 for k, v in response_dict.items():
-                    xx = []
+                    xx=[]
                     for row in v:
                         if not row:
-                            pass
+                            pass #ignore
                         elif isinstance(row, str):
                             xx.append(row.decode('utf8'))
                         elif not isinstance(row, unicode):
@@ -217,7 +174,7 @@ class RefEgovServiceView(BrowserView):
                     if xx:
                         result[k.encode('utf8')] = xx
 
-            except TypeError:
+            except TypeError:#AttributeError:
                 self.error = True
                 return
 
@@ -232,8 +189,7 @@ class RefEgovServiceView(BrowserView):
     def blocks(self):
         """ Returns the blocks in the correct order.
         """
-        return ['Generelle Information', 'Vorbedingungen',
-                'Beh\xc3\xb6rdengang',
+        return ['Generelle Information','Vorbedingungen', 'Beh\xc3\xb6rdengang',
                 'Formular(e)', 'Ben\xc3\xb6tigte Dokumente', 'Ergebnis',
                 'Kosten', 'Gesetzliche Grundlagen', 'Andere Dokumente',
                 'Bemerkungen', 'Genehmigung', 'Kontakt']
