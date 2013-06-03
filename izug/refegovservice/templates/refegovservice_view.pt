@@ -25,7 +25,13 @@
         <tal:error condition="not: view/error">
             <tal:row repeat="key view/blocks">
                 <tal:block tal:condition="python: key in response and response[key]">
-                    <h2 tal:content="key"></h2>
+                    <!-- rename key Genehmigung -->
+                    <tal:rename condition="python:key=='Genehmigung'">
+                      <h2>Adresse</h2>
+                    </tal:rename>
+                    <tal:rename condition="python:key!='Genehmigung'">
+                      <h2 tal:content="key"></h2>
+                    </tal:rename>
                     <p tal:content="structure python:'<br />'.join(response[key])">
                     </p>
                 </tal:block>
