@@ -3,7 +3,7 @@
 
     <object name="wsrefegov_property_sheet" meta_type="Plone Property Sheet">
         <property name="title" type="string">WsRefEgov Properties</property>
-        <property name="client_url" type="string">http://ref.ch.ch/WS/ServiceContract/WS.wsdl</property>
+        <property name="client_url" type="string">http://ref.cyberadmin.ch/WS/ServiceContract/WS.wsdl</property>
     </object>
 
 </object>

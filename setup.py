@@ -41,6 +41,7 @@ setup(name='izug.refegovservice',
       install_requires=[
           'setuptools',
           'suds',
+          'ftw.upgrade',
       ],
 
       entry_points="""
