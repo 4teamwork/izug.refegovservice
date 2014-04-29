@@ -12,6 +12,8 @@
 
     <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 
+    <include package=".upgrades" />
+
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
         name="default"

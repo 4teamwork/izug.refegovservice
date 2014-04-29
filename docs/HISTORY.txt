@@ -5,7 +5,9 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change ref.ch.ch URL to ref.cyberadmin.ch.
+  ref.ch.ch is no longer available.
+  [jone]
 
 
 1.0.2 (2013-06-04)
