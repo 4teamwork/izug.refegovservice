@@ -5,6 +5,9 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
+- Replace cyberadmin with local solution.
+  [lknoepfel]
+
 - Change ref.ch.ch URL to ref.cyberadmin.ch.
   ref.ch.ch is no longer available.
   [jone]

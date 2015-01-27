@@ -1,0 +1,54 @@
+<tal:main-macro metal:define-macro="leistung">
+  <div tal:replace="structure provider:plone.abovecontenttitle" />
+  <h1 class="documentFirstHeading" tal:content="context/Title"></h1>
+  <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+  <div tal:condition="context/getDescription">
+      <h2 tal:content="python: view.translate('description')"></h2>
+      <p tal:content="structure context/getDescription" />
+  </div>
+  <div tal:condition="context/getGeneralinformation">
+      <h2 tal:content="python: view.translate('generalinformation')"></h2>
+      <p tal:content="structure context/getGeneralinformation" />
+  </div>
+  <div tal:condition="context/getResult">
+      <h2 tal:content="python: view.translate('result')"></h2>
+      <p tal:content="structure context/getResult" />
+  </div>
+  <div tal:condition="context/getCost">
+      <h2 tal:content="python: view.translate('cost')"></h2>
+      <p tal:content="structure context/getCost" />
+  </div>
+  <div tal:condition="context/getAnnotations">
+      <h2 tal:content="python: view.translate('annotations')"></h2>
+      <p tal:content="structure context/getAnnotations" />
+  </div>
+  <div tal:condition="context/getPrecondition">
+      <h2 tal:content="python: view.translate('precondition')"></h2>
+      <p tal:content="structure context/getPrecondition" />
+  </div>
+  <div tal:condition="context/getProcedure">
+      <h2 tal:content="python: view.translate('procedure')"></h2>
+      <p tal:content="structure context/getProcedure" />
+  </div>
+  <div tal:condition="context/getForms">
+      <h2 tal:content="python: view.translate('forms')"></h2>
+      <p tal:content="structure context/getForms" />
+  </div>
+  <div tal:condition="context/getRequireddocuments">
+      <h2 tal:content="python: view.translate('requireddocuments')"></h2>
+      <p tal:content="structure context/getRequireddocuments" />
+  </div>
+  <div tal:condition="context/getLegalbases">
+      <h2 tal:content="python: view.translate('legalbases')"></h2>
+      <p tal:content="structure context/getLegalbases" />
+  </div>
+  <div tal:condition="context/getAdditionalinformation">
+      <h2 tal:content="python: view.translate('additionalinformation')"></h2>
+      <p tal:content="structure context/getAdditionalinformation" />
+  </div>
+  <div tal:condition="context/getAddress">
+      <h2 tal:content="python: view.translate('address')"></h2>
+      <p tal:content="structure context/getAddress" />
+  </div>
+</tal:main-macro>

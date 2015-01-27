@@ -7,11 +7,9 @@
       i18n:domain="izug.refegovservice">
 
 <body>
-<div metal:fill-slot="main" class="webContent">
-  <!-- redefine context to referenced object to display the referenced object -->
-  <tal:block tal:define="context context/getReferencedService">
-    <metal:use_body use-macro="context/@@izug_refegovsercie_macros/leistung" />
-  </tal:block>
-</div>
+
+  <div metal:fill-slot="main" class="webContent">
+    <tal:block metal:use-macro="view/context/@@izug_refegovsercie_macros/leistung"></tal:block>
+  </div>
 </body>
 </html>

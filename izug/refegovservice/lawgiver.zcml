@@ -10,4 +10,9 @@
         permissions="izug.refegovservice: Add RefEgovService"
         />
 
+    <lawgiver:map_permissions
+        action_group="add egovleistung"
+        permissions="izug.refegovservice: Add EgovLeistung"
+        />
+
 </configure>
