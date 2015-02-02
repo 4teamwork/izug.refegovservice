@@ -1,9 +1,10 @@
-from unittest2 import TestCase
+from ftw.builder import Builder
+from ftw.builder import create
+from ftw.testbrowser import browsing
 from izug.refegovservice.testing import IZUG_REFEGOVSERVICE_FUNCTIONAL_TESTING
-from plone.testing.z2 import Browser
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
-from pyquery import PyQuery
+from unittest2 import TestCase
 
 
 class TestCreation(TestCase):
@@ -16,35 +17,30 @@ class TestCreation(TestCase):
         self.portal = self.layer['portal']
         self.portal_url = self.portal.portal_url()
 
-        # Browser setup
-        self.browser = Browser(self.layer['app'])
-        self.browser.handleErrors = False
+        self.leistung = create(Builder('egov leistung')
+                               .titled('Leistung')
+                               .having(description='The Description',
+                                       generalinformation='Some infos'))
 
-        self.browser.addHeader('Authorization', 'Basic %s:%s' % (
-                TEST_USER_NAME, TEST_USER_PASSWORD, ))
-
-    def tearDown(self):
-        super(TestCreation, self).tearDown()
+        self.refservice = create(Builder('ref egov service')
+                                 .titled('Reference')
+                                 .having(referencedService=self.leistung))
 
     def test_fti(self):
         self.assertIn('RefEgovService', self.portal.portal_types.objectIds())
+        self.assertIn('EgovLeistung', self.portal.portal_types.objectIds())
 
-    def test_creation_render(self):
-        _id = self.portal.invokeFactory('RefEgovService', 'service')
-        self.assertIn(_id, self.portal.objectIds())
+    @browsing
+    def test_creation_render(self, browser):
+        browser.login(TEST_USER_NAME, TEST_USER_PASSWORD)
 
-        self.browser.open('%s/createObject?type_name=RefEgovService' %
-            self.portal_url)
-        self.browser.getControl("Title").value = 'New Service'
-        self.browser.getControl("eCHserviceID").value = '00488'
-        self.browser.getControl("eCHserviceVersionID").value = '13421'
-        self.browser.getControl("Save").click()
-        self.assertEquals(self.browser.url,
-                          "%s/new-service" % self.portal_url)
+        browser.visit(self.refservice)
 
-        pq = PyQuery(self.browser.contents)
+        self.assertEquals('Leistung',
+                          browser.css('.documentFirstHeading').first.text)
 
-        self.assertTrue(pq('#content .documentFirstHeading'))
-        self.assertTrue(len(pq('#content h2')) > 1, 'Expect some h2 tags')
-        self.assertTrue(len(pq('#content p')) > 1, 'Expect some p tags')
-        self.assertTrue('No service found' not in self.browser.contents)
+        fields = browser.css('h2')
+        self.assertIn('Some infos',
+                      fields.pop().parent().text)
+        self.assertIn('The Description',
+                      fields.pop().parent().text)
