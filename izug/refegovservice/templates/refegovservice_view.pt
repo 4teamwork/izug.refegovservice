@@ -8,10 +8,15 @@
 
 <body>
 <div metal:fill-slot="main" class="webContent">
-  <!-- redefine context to referenced object to display the referenced object -->
-  <tal:block tal:define="context context/getReferencedService">
-    <metal:use_body use-macro="context/@@izug_refegovsercie_macros/leistung" />
-  </tal:block>
+  <tal:con tal:condition="context/getReferencedService">
+    <!-- redefine context to referenced object to display the referenced object -->
+    <tal:block tal:define="context context/getReferencedService">
+      <metal:use_body use-macro="context/@@izug_refegovsercie_macros/leistung" />
+    </tal:block>
+  </tal:con>
+  <tal:con tal:condition="not: context/getReferencedService">
+    <h1 i18n:translate="">Please upgrade this object to the new Egov Leistung.</h1>
+  </tal:con>
 </div>
 </body>
 </html>

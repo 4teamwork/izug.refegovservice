@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-01-29 10:26+0000\n"
+"POT-Creation-Date: 2015-02-26 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 #: ./izug/refegovservice/profiles/default/types/EgovLeistung.xml
 #: ./izug/refegovservice/upgrades/profiles/1002/types/EgovLeistung.xml
 msgid "Egov Service"
+msgstr ""
+
+#: ./izug/refegovservice/templates/refegovservice_view.pt:18
+msgid "Please upgrade this object to the new Egov Leistung."
 msgstr ""
 
 #: ./izug/refegovservice/egovleistung.py:164
@@ -48,7 +52,7 @@ msgid "generalinformation"
 msgstr ""
 
 #: ./izug/refegovservice/egovleistung.py:149
-msgid "legalBases"
+msgid "legalbases"
 msgstr ""
 
 #: ./izug/refegovservice/egovleistung.py:91
