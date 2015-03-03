@@ -19,6 +19,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'description'),
+            allow_file_upload=False,
         )
     ),
 
@@ -33,6 +34,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'generalinformation'),
+            allow_file_upload=False,
         )
     ),
 
@@ -47,6 +49,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'result'),
+            allow_file_upload=False,
         )
     ),
 
@@ -61,6 +64,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'cost'),
+            allow_file_upload=False,
         )
     ),
 
@@ -75,6 +79,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'annotations'),
+            allow_file_upload=False,
         )
     ),
 
@@ -89,6 +94,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'precondition'),
+            allow_file_upload=False,
         )
     ),
 
@@ -103,6 +109,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'procedure'),
+            allow_file_upload=False,
         )
     ),
 
@@ -118,6 +125,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'forms'),
+            allow_file_upload=False,
         )
     ),
 
@@ -132,6 +140,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'requireddocuments'),
+            allow_file_upload=False,
         )
     ),
 
@@ -147,6 +156,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'legalbases'),
+            allow_file_upload=False,
         )
     ),
 
@@ -162,6 +172,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'additionalinformation'),
+            allow_file_upload=False,
         )
     ),
 
@@ -176,6 +187,7 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             label=_(u'address'),
             rows=5,
+            allow_file_upload=False,
         ),
     ),
 
@@ -185,6 +197,7 @@ schema = atapi.Schema((
 
 EgovLeistungSchema = schemata.ATContentTypeSchema.copy() + schema.copy()
 schemata.finalizeATCTSchema(EgovLeistungSchema, folderish=0)
+EgovLeistungSchema.changeSchemataForField('language', 'default')
 
 
 class EgovLeistung(ATCTContent):
