@@ -1,0 +1,74 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2015-02-26 08:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+
+#: ./izug/refegovservice/profiles/default/types/EgovLeistung.xml
+#: ./izug/refegovservice/upgrades/profiles/1002/types/EgovLeistung.xml
+msgid "Egov Service"
+msgstr ""
+
+#: ./izug/refegovservice/templates/refegovservice_view.pt:18
+msgid "Please upgrade this object to the new Egov Leistung."
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:164
+msgid "additionalinformation"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:177
+msgid "address"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:77
+msgid "annotations"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:63
+msgid "cost"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:21
+msgid "description"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:120
+msgid "forms"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:35
+msgid "generalinformation"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:149
+msgid "legalbases"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:91
+msgid "precondition"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:105
+msgid "procedure"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:134
+msgid "requireddocuments"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:49
+msgid "result"
+msgstr ""
+
+

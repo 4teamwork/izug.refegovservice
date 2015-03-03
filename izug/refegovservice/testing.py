@@ -1,16 +1,20 @@
-from plone.app.testing import IntegrationTesting
+from ftw.builder.testing import BUILDER_LAYER
+from ftw.builder.testing import functional_session_factory
+from ftw.builder.testing import set_builder_session_factory
+from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import applyProfile
 from plone.app.testing import setRoles, TEST_USER_ID, TEST_USER_NAME, login
 from plone.testing import z2
 from zope.configuration import xmlconfig
+import izug.refegovservice.tests.builders
 
 
 class RefeGovServiceLayer(PloneSandboxLayer):
 
-    defaultBases = (PLONE_FIXTURE, )
+    defaultBases = (PLONE_FIXTURE, BUILDER_LAYER)
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
@@ -35,5 +39,6 @@ IZUG_REFEGOVSERVICE_INTEGRATION_TESTING = IntegrationTesting(
     bases=(IZUG_REFEGOVSERVICE_FIXTURE, ),
     name="IzugRefEgovService:Integration")
 IZUG_REFEGOVSERVICE_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(IZUG_REFEGOVSERVICE_FIXTURE, ),
+    bases=(IZUG_REFEGOVSERVICE_FIXTURE,
+           set_builder_session_factory(functional_session_factory)),
     name="IzugRefEgovService:Functional")

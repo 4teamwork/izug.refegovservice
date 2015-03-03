@@ -10,6 +10,7 @@
 
     <five:registerPackage package="." initialize=".initialize" />
 
+    <i18n:registerTranslations directory="locales" />
     <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 
     <include package=".upgrades" />
@@ -30,18 +31,34 @@
             />
     </class>
 
+    <class class=".egovleistung.EgovLeistung">
+        <require
+            permission="zope2.View"
+            interface=".interfaces.IEgovLeistung"
+            />
+    </class>
+
+    <browser:page
+        for="*"
+        name="egovleistung_view"
+        class=".egovleistung_view.EgovLeistungView"
+        template="templates/egovleistung_view.pt"
+        permission="zope2.View"
+        />
+
     <browser:page
         for="*"
         name="refegovservice_view"
-        class=".refegovservice_view.RefEgovServiceView"
+        class=".egovleistung_view.EgovLeistungView"
         permission="zope2.View"
         template="templates/refegovservice_view.pt"
         />
 
-    <adapter
-        provides=".interfaces.IRevEgovConfig"
+    <browser:page
         for="*"
-        factory=".refegov_config.RevEgovConfig"
+        name="izug_refegovsercie_macros"
+        template="templates/macros.pt"
+        permission="zope.Public"
         />
 
 </configure>

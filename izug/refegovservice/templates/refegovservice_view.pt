@@ -8,42 +8,15 @@
 
 <body>
 <div metal:fill-slot="main" class="webContent">
-    <tal:main-macro metal:define-macro="main" tal:define="response view/get_body">
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-        <h1 class="documentFirstHeading">
-            <span tal:condition="not:view/error"
-                  tal:content="python: ' '.join(response['title'])" />
-            <span tal:condition="view/error"
-                  i18n:translate="">Error</span>
-        </h1>
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-        <p tal:condition="view/error"
-           i18n:translate="">
-            No service found
-        </p>
-        <tal:error condition="not: view/error">
-            <tal:row repeat="key view/blocks">
-                <tal:block tal:condition="python: key in response and response[key]">
-                    <!-- rename key Genehmigung -->
-                    <tal:rename condition="python:key=='Genehmigung'">
-                      <h2>Adresse</h2>
-                    </tal:rename>
-                    <tal:rename condition="python:key!='Genehmigung'">
-                      <h2 tal:content="key"></h2>
-                    </tal:rename>
-                    <p tal:content="structure python:'<br />'.join(response[key])">
-                    </p>
-                </tal:block>
-            </tal:row>
-            <!-- Kontakt -->
-            <tal:contact condition="python: 'Adressen' in response">
-                <h2>Adressen</h2>
-                <p tal:content="structure python:'<br />'.join(response['Adressen'])">
-                </p>
-            </tal:contact>
-        </tal:error>
-    </tal:main-macro>
+  <tal:con tal:condition="context/getReferencedService">
+    <!-- redefine context to referenced object to display the referenced object -->
+    <tal:block tal:define="context context/getReferencedService">
+      <metal:use_body use-macro="context/@@izug_refegovsercie_macros/leistung" />
+    </tal:block>
+  </tal:con>
+  <tal:con tal:condition="not: context/getReferencedService">
+    <h1 i18n:translate="">Please upgrade this object to the new Egov Leistung.</h1>
+  </tal:con>
 </div>
 </body>
 </html>
