@@ -17,7 +17,7 @@ msgstr ""
 #: ./izug/refegovservice/profiles/default/types/EgovLeistung.xml
 #: ./izug/refegovservice/upgrades/profiles/1002/types/EgovLeistung.xml
 msgid "Egov Service"
-msgstr "Egov Leistung"
+msgstr "Online-Dienstleistungen"
 
 #: ./izug/refegovservice/templates/refegovservice_view.pt:18
 msgid "Please upgrade this object to the new Egov Leistung."
