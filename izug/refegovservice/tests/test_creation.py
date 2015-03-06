@@ -20,7 +20,8 @@ class TestCreation(TestCase):
         self.leistung = create(Builder('egov leistung')
                                .titled('Leistung')
                                .having(description='The Description',
-                                       generalinformation='Some infos'))
+                                       generalinformation='Some infos',
+                                       result='A result'))
 
         self.refservice = create(Builder('ref egov service')
                                  .titled('Reference')
@@ -29,6 +30,13 @@ class TestCreation(TestCase):
     def test_fti(self):
         self.assertIn('RefEgovService', self.portal.portal_types.objectIds())
         self.assertIn('EgovLeistung', self.portal.portal_types.objectIds())
+
+    @browsing
+    def test_description_is_not_rendered(self, browser):
+        browser.login().visit(self.refservice)
+        self.assertNotIn('The Description',
+                         browser.css('h2'),
+                         'Description should no be rendered.')
 
     @browsing
     def test_creation_render(self, browser):
@@ -40,7 +48,8 @@ class TestCreation(TestCase):
                           browser.css('.documentFirstHeading').first.text)
 
         fields = browser.css('h2')
-        self.assertIn('Some infos',
+        self.assertIn('A result',
                       fields.pop().parent().text)
-        self.assertIn('The Description',
+
+        self.assertIn('Some infos',
                       fields.pop().parent().text)
