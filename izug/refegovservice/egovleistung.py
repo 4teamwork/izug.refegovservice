@@ -10,6 +10,7 @@ from zope.interface import implements
 schema = atapi.Schema((
     atapi.TextField(
         name='description',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -25,6 +26,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='generalinformation',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -40,6 +42,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='result',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -55,6 +58,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='cost',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -70,6 +74,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='annotations',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -85,6 +90,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='precondition',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -100,6 +106,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='procedure',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -116,6 +123,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='forms',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -131,6 +139,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='requireddocuments',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -147,6 +156,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='legalbases',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -163,6 +173,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='additionalinformation',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -178,6 +189,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='address',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
