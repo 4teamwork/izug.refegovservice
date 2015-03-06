@@ -9,7 +9,6 @@ tests_require = ['ftw.builder',
                  'ftw.testing',
                  'ftw.testbrowser',
                  'plone.app.testing',
-                 'pyquery',
                  ]
 
 setup(name='izug.refegovservice',
@@ -44,6 +43,7 @@ setup(name='izug.refegovservice',
           'setuptools',
           'suds',
           'ftw.upgrade',
+          'ftw.table',
       ],
 
       entry_points="""

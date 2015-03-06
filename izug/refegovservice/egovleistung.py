@@ -1,3 +1,4 @@
+from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from izug.refegovservice import _
 from izug.refegovservice.config import PROJECTNAME
 from izug.refegovservice.interfaces import IEgovLeistung
@@ -200,6 +201,18 @@ schema = atapi.Schema((
             label=_(u'address'),
             rows=5,
             allow_file_upload=False,
+        ),
+    ),
+
+    atapi.ReferenceField(
+        name='orgunit',
+        searchable=True,
+        storage=atapi.AnnotationStorage(),
+        relationship='leistung_orgunit',
+        widget=ReferenceBrowserWidget(
+            label=_(u'orgunit'),
+            allow_browse=True,
+            base_query={'object_provides': 'izug.organisation.interfaces.IDirectorateMarker'}
         ),
     ),
 

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-26 08:52+0000\n"
+"POT-Creation-Date: 2015-03-06 09:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,51 +23,70 @@ msgstr ""
 msgid "Please upgrade this object to the new Egov Leistung."
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:164
+#: ./izug/refegovservice/egovleistung.py:186
 msgid "additionalinformation"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:177
+#: ./izug/refegovservice/egovleistung.py:201
 msgid "address"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:77
+#: ./izug/refegovservice/egovleistung.py:87
 msgid "annotations"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:63
+#. Default: "Modified"
+#: ./izug/refegovservice/egovleistung_view.py:59
+msgid "column_modified"
+msgstr ""
+
+#. Default: "OrgUnit"
+#: ./izug/refegovservice/egovleistung_view.py:55
+msgid "column_orgunit"
+msgstr ""
+
+#. Default: "Title"
+#: ./izug/refegovservice/egovleistung_view.py:50
+msgid "column_title"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:71
 msgid "cost"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:21
+#: ./izug/refegovservice/egovleistung.py:23
 msgid "description"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:120
+#: ./izug/refegovservice/egovleistung.py:136
 msgid "forms"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:35
+#: ./izug/refegovservice/egovleistung.py:39
 msgid "generalinformation"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:149
+#: ./izug/refegovservice/egovleistung.py:169
 msgid "legalbases"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:91
+#: ./izug/refegovservice/egovleistung.py:213
+msgid "orgunit"
+msgstr ""
+
+#: ./izug/refegovservice/egovleistung.py:103
 msgid "precondition"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:105
+#: ./izug/refegovservice/egovleistung.py:119
 msgid "procedure"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:134
+#: ./izug/refegovservice/egovleistung.py:152
 msgid "requireddocuments"
 msgstr ""
 
-#: ./izug/refegovservice/egovleistung.py:49
+#: ./izug/refegovservice/egovleistung.py:55
 msgid "result"
 msgstr ""
 

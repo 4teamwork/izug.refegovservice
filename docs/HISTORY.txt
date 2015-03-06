@@ -5,6 +5,9 @@ Changelog
 1.0.3 (unreleased)
 ------------------
 
+- Add egov leistung overview and add orgunit field to egov leistung.
+  [mathias.leimgruber]
+
 - Replace cyberadmin with local solution.
   [lknoepfel]
 
