@@ -2,8 +2,6 @@ from ftw.builder import Builder
 from ftw.builder import create
 from ftw.testbrowser import browsing
 from izug.refegovservice.testing import IZUG_REFEGOVSERVICE_FUNCTIONAL_TESTING
-from plone.app.testing import TEST_USER_NAME
-from plone.app.testing import TEST_USER_PASSWORD
 from unittest2 import TestCase
 
 
@@ -40,9 +38,7 @@ class TestCreation(TestCase):
 
     @browsing
     def test_creation_render(self, browser):
-        browser.login(TEST_USER_NAME, TEST_USER_PASSWORD)
-
-        browser.visit(self.refservice)
+        browser.login().visit(self.refservice)
 
         self.assertEquals('Leistung',
                           browser.css('.documentFirstHeading').first.text)
