@@ -1,3 +1,4 @@
+from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from izug.refegovservice import _
 from izug.refegovservice.config import PROJECTNAME
 from izug.refegovservice.interfaces import IEgovLeistung
@@ -10,6 +11,7 @@ from zope.interface import implements
 schema = atapi.Schema((
     atapi.TextField(
         name='description',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -25,6 +27,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='generalinformation',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -40,6 +43,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='result',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -55,6 +59,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='cost',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -70,6 +75,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='annotations',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -85,6 +91,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='precondition',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -100,6 +107,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='procedure',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -116,6 +124,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='forms',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -131,6 +140,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='requireddocuments',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -147,6 +157,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='legalbases',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -163,6 +174,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='additionalinformation',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -178,6 +190,7 @@ schema = atapi.Schema((
 
     atapi.TextField(
         name='address',
+        searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
         default_content_type='text/html',
@@ -188,6 +201,16 @@ schema = atapi.Schema((
             label=_(u'address'),
             rows=5,
             allow_file_upload=False,
+        ),
+    ),
+
+    atapi.ReferenceField(
+        name='orgunit',
+        storage=atapi.AnnotationStorage(),
+        relationship='leistung_orgunit',
+        widget=ReferenceBrowserWidget(
+            label=_(u'orgunit'),
+            allow_browse=True,
         ),
     ),
 

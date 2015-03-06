@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-26 08:52+0000\n"
+"POT-Creation-Date: 2015-03-06 09:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,64 +17,83 @@ msgstr ""
 #: ./izug/refegovservice/profiles/default/types/EgovLeistung.xml
 #: ./izug/refegovservice/upgrades/profiles/1002/types/EgovLeistung.xml
 msgid "Egov Service"
-msgstr "Egov Leistung"
+msgstr "Online-Dienstleistungen"
 
 #: ./izug/refegovservice/templates/refegovservice_view.pt:18
 msgid "Please upgrade this object to the new Egov Leistung."
 msgstr "Bitte aktualisiere dieses Objekt mit der neuen Egov Leistung."
 
-#: ./izug/refegovservice/egovleistung.py:164
+#: ./izug/refegovservice/egovleistung.py:186
 msgid "additionalinformation"
 msgstr "Weiterführende Informationen und Dokumente"
 
 #. Default: "Address"
-#: ./izug/refegovservice/egovleistung.py:177
+#: ./izug/refegovservice/egovleistung.py:201
 msgid "address"
 msgstr "Adresse"
 
 #. Default: "Annotations"
-#: ./izug/refegovservice/egovleistung.py:77
+#: ./izug/refegovservice/egovleistung.py:87
 msgid "annotations"
 msgstr "Bemerkungen"
 
+#. Default: "Modified"
+#: ./izug/refegovservice/egovleistung_view.py:59
+msgid "column_modified"
+msgstr "Verändert"
+
+#. Default: "OrgUnit"
+#: ./izug/refegovservice/egovleistung_view.py:55
+msgid "column_orgunit"
+msgstr "zuständige Stelle"
+
+#. Default: "Title"
+#: ./izug/refegovservice/egovleistung_view.py:50
+msgid "column_title"
+msgstr "Titel"
+
 #. Default: "Cost"
-#: ./izug/refegovservice/egovleistung.py:63
+#: ./izug/refegovservice/egovleistung.py:71
 msgid "cost"
 msgstr "Kosten"
 
-#: ./izug/refegovservice/egovleistung.py:21
+#: ./izug/refegovservice/egovleistung.py:23
 msgid "description"
 msgstr "Kurzbeschrieb"
 
 #. Default: "Forms"
-#: ./izug/refegovservice/egovleistung.py:120
+#: ./izug/refegovservice/egovleistung.py:136
 msgid "forms"
 msgstr "Formular"
 
-#: ./izug/refegovservice/egovleistung.py:35
+#: ./izug/refegovservice/egovleistung.py:39
 msgid "generalinformation"
 msgstr "Generelle Information"
 
 #. Default: "Legal Bases"
-#: ./izug/refegovservice/egovleistung.py:149
+#: ./izug/refegovservice/egovleistung.py:169
 msgid "legalbases"
 msgstr "Rechtliche Grundlagen"
 
-#: ./izug/refegovservice/egovleistung.py:91
+#: ./izug/refegovservice/egovleistung.py:213
+msgid "orgunit"
+msgstr "zuständige Stelle"
+
+#: ./izug/refegovservice/egovleistung.py:103
 msgid "precondition"
 msgstr "Vorbedingung"
 
 #. Default: "Procedure"
-#: ./izug/refegovservice/egovleistung.py:105
+#: ./izug/refegovservice/egovleistung.py:119
 msgid "procedure"
 msgstr "Vorgehen"
 
-#: ./izug/refegovservice/egovleistung.py:134
+#: ./izug/refegovservice/egovleistung.py:152
 msgid "requireddocuments"
 msgstr "Erforderliche Dokumente"
 
 #. Default: "Results"
-#: ./izug/refegovservice/egovleistung.py:49
+#: ./izug/refegovservice/egovleistung.py:55
 msgid "result"
 msgstr "Ergebnis"
 
