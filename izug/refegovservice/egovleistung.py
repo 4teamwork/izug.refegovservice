@@ -206,13 +206,11 @@ schema = atapi.Schema((
 
     atapi.ReferenceField(
         name='orgunit',
-        searchable=True,
         storage=atapi.AnnotationStorage(),
         relationship='leistung_orgunit',
         widget=ReferenceBrowserWidget(
             label=_(u'orgunit'),
             allow_browse=True,
-            base_query={'object_provides': 'izug.organisation.interfaces.IDirectorateMarker'}
         ),
     ),
 
