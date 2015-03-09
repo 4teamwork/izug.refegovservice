@@ -42,54 +42,6 @@ schema = atapi.Schema((
     ),
 
     atapi.TextField(
-        name='result',
-        searchable=True,
-        storage=atapi.AnnotationStorage(),
-        allowable_content_types=('text/html', ),
-        default_content_type='text/html',
-        validators=('isTidyHtmlWithCleanup', ),
-        default_input_type='text/html',
-        default_output_type='text/x-html-safe',
-        widget=atapi.RichWidget(
-            rows=4,
-            label=_(u'result'),
-            allow_file_upload=False,
-        )
-    ),
-
-    atapi.TextField(
-        name='cost',
-        searchable=True,
-        storage=atapi.AnnotationStorage(),
-        allowable_content_types=('text/html', ),
-        default_content_type='text/html',
-        validators=('isTidyHtmlWithCleanup', ),
-        default_input_type='text/html',
-        default_output_type='text/x-html-safe',
-        widget=atapi.RichWidget(
-            rows=4,
-            label=_(u'cost'),
-            allow_file_upload=False,
-        )
-    ),
-
-    atapi.TextField(
-        name='annotations',
-        searchable=True,
-        storage=atapi.AnnotationStorage(),
-        allowable_content_types=('text/html', ),
-        default_content_type='text/html',
-        validators=('isTidyHtmlWithCleanup', ),
-        default_input_type='text/html',
-        default_output_type='text/x-html-safe',
-        widget=atapi.RichWidget(
-            rows=4,
-            label=_(u'annotations'),
-            allow_file_upload=False,
-        )
-    ),
-
-    atapi.TextField(
         name='precondition',
         searchable=True,
         storage=atapi.AnnotationStorage(),
@@ -120,7 +72,6 @@ schema = atapi.Schema((
             allow_file_upload=False,
         )
     ),
-
 
     atapi.TextField(
         name='forms',
@@ -154,6 +105,37 @@ schema = atapi.Schema((
         )
     ),
 
+    atapi.TextField(
+        name='result',
+        searchable=True,
+        storage=atapi.AnnotationStorage(),
+        allowable_content_types=('text/html', ),
+        default_content_type='text/html',
+        validators=('isTidyHtmlWithCleanup', ),
+        default_input_type='text/html',
+        default_output_type='text/x-html-safe',
+        widget=atapi.RichWidget(
+            rows=4,
+            label=_(u'result'),
+            allow_file_upload=False,
+        )
+    ),
+
+    atapi.TextField(
+        name='cost',
+        searchable=True,
+        storage=atapi.AnnotationStorage(),
+        allowable_content_types=('text/html', ),
+        default_content_type='text/html',
+        validators=('isTidyHtmlWithCleanup', ),
+        default_input_type='text/html',
+        default_output_type='text/x-html-safe',
+        widget=atapi.RichWidget(
+            rows=4,
+            label=_(u'cost'),
+            allow_file_upload=False,
+        )
+    ),
 
     atapi.TextField(
         name='legalbases',
@@ -171,7 +153,6 @@ schema = atapi.Schema((
         )
     ),
 
-
     atapi.TextField(
         name='additionalinformation',
         searchable=True,
@@ -184,6 +165,22 @@ schema = atapi.Schema((
         widget=atapi.RichWidget(
             rows=4,
             label=_(u'additionalinformation'),
+            allow_file_upload=False,
+        )
+    ),
+
+    atapi.TextField(
+        name='annotations',
+        searchable=True,
+        storage=atapi.AnnotationStorage(),
+        allowable_content_types=('text/html', ),
+        default_content_type='text/html',
+        validators=('isTidyHtmlWithCleanup', ),
+        default_input_type='text/html',
+        default_output_type='text/x-html-safe',
+        widget=atapi.RichWidget(
+            rows=4,
+            label=_(u'annotations'),
             allow_file_upload=False,
         )
     ),
