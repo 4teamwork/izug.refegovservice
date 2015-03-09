@@ -86,7 +86,7 @@ msgstr "Vorbedingung"
 #. Default: "Procedure"
 #: ./izug/refegovservice/egovleistung.py:119
 msgid "procedure"
-msgstr "Vorgehen"
+msgstr "Behördengang"
 
 #: ./izug/refegovservice/egovleistung.py:152
 msgid "requireddocuments"
