@@ -5,7 +5,11 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Replace Vorgehen with Behördengang.
+  [mathias.leimgruber]
+
+- Fix form order (fields)
+  [mathias.leimgruber]
 
 
 2.0.0 (2015-03-06)
