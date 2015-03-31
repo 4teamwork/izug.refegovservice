@@ -20,10 +20,18 @@ class TestCreation(TestCase):
                                .having(description='The Description',
                                        generalinformation='Some infos',
                                        result='A result'))
-
         self.refservice = create(Builder('ref egov service')
                                  .titled('Reference')
                                  .having(referencedService=self.leistung))
+
+        self.leistungde = create(Builder('egov leistung')
+                                 .titled('Leistung DE')
+                                 .having(generalinformation='Einige Infos',
+                                         result='Ein Resultat',
+                                         language='de'))
+        self.refservicede = create(Builder('ref egov service')
+                                   .titled('Referenz')
+                                   .having(referencedService=self.leistungde))
 
     def test_fti(self):
         self.assertIn('RefEgovService', self.portal.portal_types.objectIds())
@@ -49,3 +57,21 @@ class TestCreation(TestCase):
 
         self.assertIn('Some infos',
                       fields.pop().parent().text)
+
+    @browsing
+    def test_correct_language_is_picked(self, browser):
+        browser.login().visit(self.refservice)
+        self.assertEquals('General Information',
+                          browser.css('.webContent h2').first.text)
+
+        browser.visit(self.leistung)
+        self.assertEquals('General Information',
+                          browser.css('.webContent h2').first.text)
+
+        browser.visit(self.leistungde)
+        self.assertEquals('Generelle Information',
+                          browser.css('.webContent h2').first.text)
+
+        browser.visit(self.refservicede)
+        self.assertEquals('Generelle Information',
+                          browser.css('.webContent h2').first.text)

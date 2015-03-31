@@ -59,7 +59,7 @@
     <browser:page
         for="*"
         name="refegovservice_view"
-        class=".egovleistung_view.EgovLeistungView"
+        class=".egovleistung_view.RefEgovLeistungView"
         permission="zope2.View"
         template="templates/refegovservice_view.pt"
         />
