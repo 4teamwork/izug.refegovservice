@@ -19,6 +19,18 @@ class EgovLeistungView(BrowserView):
                          target_language=lang)
 
 
+class RefEgovLeistungView(BrowserView):
+
+    def translate(self, msgid):
+        lang = self.context.getReferencedService().Language()
+        if not lang:
+            lang = 'de'
+        return translate(msgid,
+                         domain='izug.refegovservice',
+                         context=self.request,
+                         target_language=lang)
+
+
 def link_orgunit(item, value):
     orgunit = item.getObject().getOrgunit()
 
