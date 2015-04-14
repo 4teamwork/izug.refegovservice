@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.2 (unreleased)
+2.0.2 (2015-04-14)
 ------------------
 
 - Fix picked language on reference service.
