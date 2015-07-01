@@ -5,7 +5,8 @@ Changelog
 2.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Display byline of refegovservice object, not the referenced egovleistung byline.
+  [lknoepfel]
 
 
 2.0.2 (2015-04-14)

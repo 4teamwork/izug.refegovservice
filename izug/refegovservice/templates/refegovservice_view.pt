@@ -7,7 +7,15 @@
       i18n:domain="izug.refegovservice">
 
 <body>
-<div metal:fill-slot="main" class="webContent">
+
+<div metal:fill-slot="content-title">
+  <tal:con tal:condition="context/getReferencedService">
+    <tal:block tal:define="context context/getReferencedService">
+      <h1 class="documentFirstHeading" tal:content="context/Title"></h1>
+    </tal:block>
+  </tal:con>
+</div>
+<div metal:fill-slot="content-core" class="webContent">
   <tal:con tal:condition="context/getReferencedService">
     <!-- redefine context to referenced object to display the referenced object -->
     <tal:block tal:define="context context/getReferencedService">

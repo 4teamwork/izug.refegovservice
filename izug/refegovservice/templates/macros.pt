@@ -1,8 +1,4 @@
 <tal:main-macro metal:define-macro="leistung">
-  <div tal:replace="structure provider:plone.abovecontenttitle" />
-  <h1 class="documentFirstHeading" tal:content="context/Title"></h1>
-  <div tal:replace="structure provider:plone.belowcontenttitle" />
-
   <div tal:condition="context/getGeneralinformation">
       <h2 tal:content="python: view.translate('generalinformation')"></h2>
       <p tal:content="structure context/getGeneralinformation" />
