@@ -8,7 +8,7 @@
 
 <body>
 
-  <div metal:fill-slot="main" class="webContent">
+  <div metal:fill-slot="content-core" class="webContent">
     <tal:block metal:use-macro="view/context/@@izug_refegovsercie_macros/leistung"></tal:block>
   </div>
 </body>

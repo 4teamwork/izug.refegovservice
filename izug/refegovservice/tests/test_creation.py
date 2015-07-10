@@ -2,6 +2,7 @@ from ftw.builder import Builder
 from ftw.builder import create
 from ftw.testbrowser import browsing
 from izug.refegovservice.testing import IZUG_REFEGOVSERVICE_FUNCTIONAL_TESTING
+from plone.app.testing import login
 from unittest2 import TestCase
 
 
@@ -75,3 +76,28 @@ class TestCreation(TestCase):
         browser.visit(self.refservicede)
         self.assertEquals('Generelle Information',
                           browser.css('.webContent h2').first.text)
+
+    @browsing
+    def test_byline_of_current_item_is_displayed_not_referenced_byline(self, browser):
+
+        self.user2 = create(Builder('user')
+            .named('Hugo', 'Boss')
+            .with_email('hugo.boss@4teamwork.ch')
+            .with_password('demo14')
+            .with_roles('Manager'))
+
+        self.leistung = create(Builder('egov leistung')
+                         .titled('Leistung'))
+
+        login(self.portal, self.user2.getUser().getName())
+
+        self.refservice = create(Builder('ref egov service')
+                           .titled('Referenz')
+                           .having(referencedService=self.leistung))
+
+        browser.login().visit(self.leistung)
+        self.assertIn('test_user_1_', browser.contents)
+        self.assertNotIn('Boss Hugo', browser.contents)
+
+        browser.visit(self.refservice)
+        self.assertIn('Boss Hugo', browser.contents)
