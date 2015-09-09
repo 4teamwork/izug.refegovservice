@@ -9,8 +9,9 @@ from zope.interface import implements
 
 
 schema = atapi.Schema((
+
     atapi.TextField(
-        name='description',
+        name='summary',
         searchable=True,
         storage=atapi.AnnotationStorage(),
         allowable_content_types=('text/html', ),
@@ -20,7 +21,7 @@ schema = atapi.Schema((
         default_output_type='text/x-html-safe',
         widget=atapi.RichWidget(
             rows=4,
-            label=_(u'description'),
+            label=_(u'summary'),
             allow_file_upload=False,
         )
     ),
