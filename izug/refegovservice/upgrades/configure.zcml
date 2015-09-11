@@ -34,4 +34,8 @@
         profile="izug.refegovservice:default"
         />
 
+    <upgrade-step:directory
+        profile="izug.refegovservice:default"
+        directory="."
+        />
 </configure>

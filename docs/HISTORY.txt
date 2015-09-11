@@ -11,6 +11,9 @@ Changelog
 2.0.3 (2015-08-11)
 ------------------
 
+- Don't overwrite Description field & migrate data to new field.
+  [tschanzt]
+
 - Display byline of refegovservice object, not the referenced egovleistung byline.
   [lknoepfel]
 

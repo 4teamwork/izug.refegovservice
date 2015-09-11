@@ -1,4 +1,8 @@
 <tal:main-macro metal:define-macro="leistung">
+  <div tal:condition="context/getSummary">
+      <h2 tal:content="python: view.translate('summary')"></h2>
+      <p tal:content="structure context/getSummary" />
+  </div>
   <div tal:condition="context/getGeneralinformation">
       <h2 tal:content="python: view.translate('generalinformation')"></h2>
       <p tal:content="structure context/getGeneralinformation" />
