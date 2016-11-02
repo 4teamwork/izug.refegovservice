@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.5 (unreleased)
+2.0.5 (2016-11-02)
 ------------------
 
 - Fix `IndexError` in RefBrowser Popup by chaching default search index for referencewidget to "title".
