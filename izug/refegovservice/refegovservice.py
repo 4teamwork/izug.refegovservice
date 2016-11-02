@@ -14,7 +14,8 @@ schema = atapi.Schema((
         relationship='pointstoservice',
         allowed_types=('EgovLeistung', ),
         widget=ReferenceBrowserWidget(
-            label='Service Referenz'
+            label='Service Referenz',
+            default_search_index='Title'
         ),
     ),
 ),

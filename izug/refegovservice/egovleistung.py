@@ -208,6 +208,7 @@ schema = atapi.Schema((
         relationship='leistung_orgunit',
         widget=ReferenceBrowserWidget(
             label=_(u'orgunit'),
+            default_search_index='Title',
             allow_browse=True,
         ),
     ),

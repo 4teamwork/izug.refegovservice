@@ -5,8 +5,9 @@ Changelog
 2.0.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Fix `IndexError` in RefBrowser Popup by chaching default search index for referencewidget to "title".
+  This is needed since we don't have any SearchableText in izug.
+  [mathias.leimgruber]
 
 2.0.4 (2015-12-23)
 ------------------
