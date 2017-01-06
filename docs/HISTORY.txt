@@ -5,7 +5,9 @@ Changelog
 2.0.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Render items recursively. This is useful if you have nested folders containing
+  "EgovLeistung" items.
+  [mbaechtold]
 
 
 2.0.5 (2016-11-02)

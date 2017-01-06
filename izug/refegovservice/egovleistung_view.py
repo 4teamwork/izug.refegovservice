@@ -1,6 +1,7 @@
 from ftw.table.interfaces import ITableGenerator
 from izug.refegovservice import _
 from Products.Five.browser import BrowserView
+from plone import api
 from zope.component import queryUtility
 from zope.i18n import translate
 from ftw.table.helper import readable_date_time_text
@@ -53,8 +54,12 @@ class EgovLeistungOverview(BrowserView):
                                   selected=('sortable_title', 'asc'),)
 
     def contents(self):
-        return self.context.getFolderContents(
-            {'portal_type': 'EgovLeistung', 'sort_on': 'sortable_title'})
+        catalog = api.portal.get_tool('portal_catalog')
+        return catalog(
+            portal_type='EgovLeistung',
+            path='/'.join(self.context.getPhysicalPath()),
+            sort_on='sortable_title',
+        )
 
     def columns(self):
         return [

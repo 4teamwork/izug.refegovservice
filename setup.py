@@ -40,6 +40,7 @@ setup(name='izug.refegovservice',
       extras_require=dict(tests=tests_require),
 
       install_requires=[
+          'plone.api',
           'setuptools',
           'suds',
           'ftw.upgrade',
