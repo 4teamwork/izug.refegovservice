@@ -43,6 +43,28 @@ class TestOverview(TestCase):
             browser.css('table.listing').first.lists())
 
     @browsing
+    def test_overview_lists_nested_services_sorted_as_table(self, browser):
+        sub_folder = create(Builder('folder').within(self.folder))
+
+        create(Builder('egov leistung')
+               .titled('B Leistung')
+               .within(sub_folder)
+               .having(orgunit=self.to_reference,
+                       modificationDate=self.modification_date))
+
+        browser.login().visit(self.folder, view='egovleistung_overview')
+
+        self.assertEquals(
+            [['Title', 'OrgUnit', 'Modified'],
+             ['A Leistung', u'B\xe4m', readable_date_time_text(
+                 None, self.modification_date)],
+             ['B Leistung', u'B\xe4m', readable_date_time_text(
+                 None, self.modification_date)],
+             ['Z Leistung', u'B\xe4m', readable_date_time_text(
+                 None, self.modification_date)]],
+            browser.css('table.listing').first.lists())
+
+    @browsing
     def test_services_are_linked(self, browser):
 
         browser.login().visit(self.folder, view='egovleistung_overview')
