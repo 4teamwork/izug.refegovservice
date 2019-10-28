@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from plone.app.textfield import RichText
 from plone.dexterity.content import Item
+from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 from z3c.relationfield import RelationChoice
@@ -81,11 +82,12 @@ class IEGovService(model.Schema):
     orgunit = RelationChoice(
         title=_(u'orgunit'),
         required=False,
-        vocabulary='plone.app.vocabularies.Catalog'
+        source=ObjPathSourceBinder()
     )
 
+    # FIXME (see https://stackoverflow.com/questions/31163583/moving-existing-fields-behaviors-in-dexterity?noredirect=1&lq=1)
     # Used to choose language that headings are displayed in
-    fieldset('Default', fields=['language'])
+    # fieldset('Default', fields=['language'])    # this doesn't work
 
 
 @implementer(IEGovService)
