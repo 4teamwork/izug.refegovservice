@@ -18,9 +18,13 @@ class RefeGovServiceLayer(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
-        import izug.refegovservice
-        xmlconfig.file('configure.zcml', izug.refegovservice,
-                       context=configurationContext)
+        xmlconfig.string(
+            '<configure xmlns="http://namespaces.zope.org/zope">'
+            '  <include package="z3c.autoinclude" file="meta.zcml" />'
+            '  <includePlugins package="plone" />'
+            '  <includePluginsOverrides package="plone" />'
+            '</configure>',
+            context=configurationContext)
 
         # installProduct() is *only* necessary for packages outside
         # the Products.* namespace which are also declared as Zope 2
