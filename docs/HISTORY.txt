@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-2.1.1 (unreleased)
+3.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Move to Dexterity, remove Archetypes functionality (but not models)
+  [djowett-ftw]
 
 
 2.1.0 (2017-01-06)
