@@ -16,7 +16,7 @@ class TestCreation(TestCase):
         self.portal = self.layer['portal']
         self.portal_url = self.portal.portal_url()
 
-        self.leistung = create(Builder('egov leistung')
+        self.leistung = create(Builder('egov service')
                                .titled('Leistung')
                                .having(description='The Description',
                                        generalinformation='Some infos',
@@ -25,7 +25,7 @@ class TestCreation(TestCase):
                                  .titled('Reference')
                                  .having(referencedService=self.leistung))
 
-        self.leistungde = create(Builder('egov leistung')
+        self.leistungde = create(Builder('egov service')
                                  .titled('Leistung DE')
                                  .having(generalinformation='Einige Infos',
                                          result='Ein Resultat',
@@ -86,7 +86,7 @@ class TestCreation(TestCase):
             .with_password('demo14')
             .with_roles('Manager'))
 
-        self.leistung = create(Builder('egov leistung')
+        self.leistung = create(Builder('egov service')
                          .titled('Leistung'))
 
         login(self.portal, self.user2.getUser().getName())

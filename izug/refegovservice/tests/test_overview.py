@@ -18,12 +18,12 @@ class TestOverview(TestCase):
         self.folder = create(Builder('folder'))
 
         self.modification_date = DateTime()
-        self.leistung1 = create(Builder('egov leistung')
+        self.leistung1 = create(Builder('egov service')
                                 .titled('Z Leistung')
                                 .within(self.folder)
                                 .having(orgunit=self.to_reference,
                                         modificationDate=self.modification_date))
-        self.leistung2 = create(Builder('egov leistung')
+        self.leistung2 = create(Builder('egov service')
                                 .titled('A Leistung')
                                 .within(self.folder)
                                 .having(orgunit=self.to_reference,
@@ -46,7 +46,7 @@ class TestOverview(TestCase):
     def test_overview_lists_nested_services_sorted_as_table(self, browser):
         sub_folder = create(Builder('folder').within(self.folder))
 
-        create(Builder('egov leistung')
+        create(Builder('egov service')
                .titled('B Leistung')
                .within(sub_folder)
                .having(orgunit=self.to_reference,
