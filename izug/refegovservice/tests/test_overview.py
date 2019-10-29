@@ -19,12 +19,12 @@ class TestOverview(TestCase):
 
         self.modification_date = DateTime()
         self.leistung1 = create(Builder('egov service')
-                                .titled('Z Leistung')
+                                .titled(u'Z Leistung')
                                 .within(self.folder)
                                 .having(orgunit=self.to_reference,
                                         modificationDate=self.modification_date))
         self.leistung2 = create(Builder('egov service')
-                                .titled('A Leistung')
+                                .titled(u'A Leistung')
                                 .within(self.folder)
                                 .having(orgunit=self.to_reference,
                                         modificationDate=self.modification_date))
@@ -47,7 +47,7 @@ class TestOverview(TestCase):
         sub_folder = create(Builder('folder').within(self.folder))
 
         create(Builder('egov service')
-               .titled('B Leistung')
+               .titled(u'B Leistung')
                .within(sub_folder)
                .having(orgunit=self.to_reference,
                        modificationDate=self.modification_date))

@@ -17,21 +17,21 @@ class TestCreation(TestCase):
         self.portal_url = self.portal.portal_url()
 
         self.leistung = create(Builder('egov service')
-                               .titled('Leistung')
-                               .having(description='The Description',
+                               .titled(u'Leistung')
+                               .having(description=u'The Description',
                                        generalinformation='Some infos',
                                        result='A result'))
         self.refservice = create(Builder('ref egov service')
-                                 .titled('Reference')
+                                 .titled(u'Reference')
                                  .having(referencedService=self.leistung))
 
         self.leistungde = create(Builder('egov service')
-                                 .titled('Leistung DE')
+                                 .titled(u'Leistung DE')
                                  .having(generalinformation='Einige Infos',
                                          result='Ein Resultat',
                                          language='de'))
         self.refservicede = create(Builder('ref egov service')
-                                   .titled('Referenz')
+                                   .titled(u'Referenz')
                                    .having(referencedService=self.leistungde))
 
     def test_fti(self):
@@ -87,12 +87,12 @@ class TestCreation(TestCase):
             .with_roles('Manager'))
 
         self.leistung = create(Builder('egov service')
-                         .titled('Leistung'))
+                         .titled(u'Leistung'))
 
         login(self.portal, self.user2.getUser().getName())
 
         self.refservice = create(Builder('ref egov service')
-                           .titled('Referenz')
+                           .titled(u'Referenz')
                            .having(referencedService=self.leistung))
 
         browser.login().visit(self.leistung)
