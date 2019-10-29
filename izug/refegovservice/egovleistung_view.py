@@ -59,7 +59,7 @@ class EgovLeistungOverview(BrowserView):
     def contents(self):
         catalog = api.portal.get_tool('portal_catalog')
         return catalog(
-            portal_type='izug.egovservice',
+            portal_type='izug.refegovservice.egovservice',
             path='/'.join(self.context.getPhysicalPath()),
             sort_on='sortable_title',
         )

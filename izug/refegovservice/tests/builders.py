@@ -4,7 +4,7 @@ from ftw.builder import builder_registry
 
 class EGovServiceBuilder(DexterityBuilder):
 
-    portal_type = 'izug.egovservice'
+    portal_type = 'izug.refegovservice.egovservice'
 
 
 builder_registry.register('egov service', EGovServiceBuilder)
@@ -12,6 +12,6 @@ builder_registry.register('egov service', EGovServiceBuilder)
 
 class RefEgovServiceBuilder(DexterityBuilder):
 
-    portal_type = 'izug.refegovservice'
+    portal_type = 'izug.refegovservice.refegovservice'
 
 builder_registry.register('ref egov service', RefEgovServiceBuilder)

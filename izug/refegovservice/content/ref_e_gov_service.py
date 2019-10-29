@@ -34,7 +34,7 @@ class IRefEGovService(model.Schema):
     referencedService = RelationChoice(
         title=_(u'referencedService'),
         required=False,
-        source=CatalogSource(portal_type=['izug.egovservice'])
+        source=CatalogSource(portal_type=['izug.refegovservice.egovservice'])
         # TODO may need to set Widget properties as below
         # widget=ReferenceBrowserWidget(
         #     label='Service Referenz',

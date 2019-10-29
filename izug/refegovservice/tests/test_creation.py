@@ -35,15 +35,21 @@ class TestCreation(TestCase):
                                    .having(referencedService=self.leistungde))
 
     def test_fti(self):
-        self.assertIn('RefEgovService', self.portal.portal_types.objectIds())
-        self.assertIn('EgovLeistung', self.portal.portal_types.objectIds())
+        self.assertIn(
+            'izug.refegovservice.egovservice',
+            self.portal.portal_types.objectIds()
+        )
+        self.assertIn(
+            'izug.refegovservice.refegovservice',
+            self.portal.portal_types.objectIds()
+        )
 
     @browsing
     def test_description_is_not_rendered(self, browser):
         browser.login().visit(self.refservice)
         self.assertNotIn('The Description',
                          browser.css('h2'),
-                         'Description should no be rendered.')
+                         'Description should not be rendered.')
 
     @browsing
     def test_creation_render(self, browser):
