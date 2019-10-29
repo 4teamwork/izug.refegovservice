@@ -2,7 +2,7 @@
 from plone.autoform import directives
 from plone.dexterity.content import Item
 from plone.supermodel import model
-from plone.app.vocabularies.catalog import CatalogSource
+from plone.formwidget.contenttree import ObjPathSourceBinder
 from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IEditForm
 from z3c.relationfield import RelationChoice
@@ -34,7 +34,7 @@ class IRefEGovService(model.Schema):
     referencedService = RelationChoice(
         title=_(u'referencedService'),
         required=False,
-        source=CatalogSource(portal_type=['izug.refegovservice.egovservice'])
+        source=ObjPathSourceBinder(portal_type=['izug.refegovservice.egovservice'])
         # TODO may need to set Widget properties as below
         # widget=ReferenceBrowserWidget(
         #     label='Service Referenz',
