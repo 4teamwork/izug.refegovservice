@@ -27,20 +27,6 @@
 
     <include package=".upgrades" />
 
-    <class class=".refegovservice.RefEgovService">
-        <require
-            permission="zope2.View"
-            interface=".interfaces.IRefEgovService"
-            />
-    </class>
-
-    <class class=".egovleistung.EgovLeistung">
-        <require
-            permission="zope2.View"
-            interface=".interfaces.IEgovLeistung"
-            />
-    </class>
-
     <browser:page
         for="*"
         name="egovleistung_view"
