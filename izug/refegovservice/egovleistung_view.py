@@ -23,7 +23,7 @@ class EgovLeistungView(BrowserView):
 class RefEgovLeistungView(BrowserView):
 
     def translate(self, msgid):
-        lang = self.context.getReferencedService().Language()
+        lang = self.context.referencedService.to_object.Language()
         if not lang:
             lang = 'de'
         return translate(msgid,
