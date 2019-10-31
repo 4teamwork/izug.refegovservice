@@ -3,6 +3,7 @@ from ftw.builder import create
 from ftw.testbrowser import browsing
 from izug.refegovservice.testing import IZUG_REFEGOVSERVICE_FUNCTIONAL_TESTING
 from plone.app.testing import login
+from plone.app.textfield.value import RichTextValue
 from unittest2 import TestCase
 
 
@@ -19,16 +20,16 @@ class TestCreation(TestCase):
         self.leistung = create(Builder('egov service')
                                .titled(u'Leistung')
                                .having(description=u'The Description',
-                                       generalinformation='Some infos',
-                                       result='A result'))
+                                       generalinformation=RichTextValue('Some infos'),
+                                       result=RichTextValue('A result')))
         self.refservice = create(Builder('ref egov service')
                                  .titled(u'Reference')
                                  .having(referencedService=self.leistung))
 
         self.leistungde = create(Builder('egov service')
                                  .titled(u'Leistung DE')
-                                 .having(generalinformation='Einige Infos',
-                                         result='Ein Resultat',
+                                 .having(generalinformation=RichTextValue('Einige Infos'),
+                                         result=RichTextValue('Ein Resultat'),
                                          language='de'))
         self.refservicede = create(Builder('ref egov service')
                                    .titled(u'Referenz')
