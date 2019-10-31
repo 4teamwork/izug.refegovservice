@@ -93,10 +93,6 @@ class IEGovService(model.Schema):
         source=ObjPathSourceBinder()
     )
 
-    # FIXME (see https://stackoverflow.com/questions/31163583/moving-existing-fields-behaviors-in-dexterity?noredirect=1&lq=1)
-    # Used to choose language that headings are displayed in
-    # fieldset('Default', fields=['language'])    # this doesn't work
-
 
 @implementer(IEGovService)
 class EGovService(Item):
