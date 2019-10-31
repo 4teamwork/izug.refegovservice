@@ -17,7 +17,7 @@ class IEGovService(model.Schema):
 
     form.widget('summary', RichTextWidget, rows=5)
     summary = RichText(
-        title=_(u'summary'),
+        title=_(u'summary', default=u'Summary'),
         required=False
     )
 
@@ -88,7 +88,7 @@ class IEGovService(model.Schema):
     )
 
     orgunit = RelationChoice(
-        title=_(u'orgunit'),
+        title=_(u'orgunit', default=u'OrgUnit'),
         required=False,
         source=ObjPathSourceBinder()
     )
