@@ -2,13 +2,17 @@ from zope.deprecation import deprecated
 from zope.interface import Interface
 
 
-class IRefEgovService(Interface):
+class IRefEGovService(Interface):
     """Marker interfaces for refegovservice"""
 
 
-class IEgovLeistung(Interface):
+class IEGovService(Interface):
     """Marker interfaces for refegovservice"""
 
+
+# Old names for these interfaces - probably unused, but deprecated to make sure
+IEgovLeistung = IRefEGovService
+IRefEgovService = IRefEGovService
 
 deprecated(
     ['IEgovLeistung'],
