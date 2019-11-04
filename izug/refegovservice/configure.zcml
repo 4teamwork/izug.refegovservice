@@ -17,6 +17,8 @@
     <include package="plone.app.relationfield" />
     <include package="ftw.table" />
 
+    <include zcml:condition="installed ftw.theming" file="resources.zcml" />
+
     <browser:resourceDirectory
         name="izug.refegovservice.resources"
         directory="resources"
