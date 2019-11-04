@@ -30,16 +30,11 @@ class IRefEGovService(model.Schema):
     directives.no_omit(IAddForm, 'title')
 
     referencedService = RelationChoice(
-        title=_(u'referencedService'),
+        title=_(u'referencedService', default=u'Referenced Service'),
         required=False,
         source=ObjPathSourceBinder(
             portal_type=['izug.refegovservice.egovservice']
         )
-        # TODO may need to set Widget properties as below
-        # widget=ReferenceBrowserWidget(
-        #     label='Service Referenz',
-        #     default_search_index='Title'
-        # ),
     )
 
 
