@@ -21,7 +21,7 @@ class ArchetypesToDexterity(UpgradeStep):
 
         for obj in self.objects({'portal_type': 'EgovLeistung'},
                                 'Migrate EgovLeistung to dexterity type '
-                                ' izug.refegovservice.egovservice'):
+                                'izug.refegovservice.egovservice'):
             migrator.migrate_object(obj)
 
     def migrate_refegovservice(self):

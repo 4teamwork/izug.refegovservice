@@ -20,6 +20,10 @@ Add ``izug.refegovservice`` to your buildout configuration:
   eggs =
       izug.refegovservice
 
+- Run buildout
+
+- Install ``izug.refegovservice`` (and optionally ``ftw.table``) in portal_setup
+
 
 Copyright
 ---------
