@@ -37,9 +37,8 @@
   <!-- View information -->
   <property name="default_view">egovleistung_view</property>
   <property name="default_view_fallback">False</property>
-  <property name="immediate_view">view</property>
+  <property name="immediate_view">egovleistung_view</property>
   <property name="view_methods">
-    <element value="view"/>
     <element value="egovleistung_view"/>
   </property>
 
