@@ -5,15 +5,41 @@ from plone.autoform import directives as form
 from plone.dexterity.content import Item
 from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.supermodel import model
+from z3c.form.interfaces import IAddForm
+from z3c.form.interfaces import IEditForm
 from z3c.relationfield import RelationChoice
+from zope import schema
 from zope.interface import implementer
 
+from plone.app.dexterity import MessageFactory as DXMF
 from izug.refegovservice import _
 
 
 class IEGovService(model.Schema):
     """ Marker interface and Dexterity Python Schema for EGovService
     """
+    # Copy IBasic behavior to change description title to 'description'!
+    title = schema.TextLine(
+        title=DXMF(u'label_title', default=u'Title'),
+        required=True
+    )
+
+    description = schema.Text(
+        title=DXMF(u'label_description', default=u'Description'),
+        description=DXMF(
+            u'help_description',
+            default=u'Used in item listings and search results.'
+        ),
+        required=False,
+        missing_value=u'',
+    )
+
+    form.order_before(description='*')
+    form.order_before(title='*')
+
+    form.omitted('title', 'description')
+    form.no_omit(IEditForm, 'title', 'description')
+    form.no_omit(IAddForm, 'title', 'description')
 
     form.widget('summary', RichTextWidget, rows=5)
     summary = RichText(
