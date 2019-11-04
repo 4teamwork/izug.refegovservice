@@ -30,7 +30,6 @@
     <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
     <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
-    <!-- <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" /> -->
   </property>
 
   <!-- View information -->
@@ -80,7 +79,5 @@
       visible="True">
     <permission value="Modify portal content"/>
   </action>
-
-  <!-- TODO - do we need an external editor action? -->
 
 </object>
