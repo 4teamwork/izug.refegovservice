@@ -20,7 +20,7 @@
   <!-- Schema, class and security -->
   <property name="add_permission">izug.refegovservice.AddEGovService</property>
   <property name="klass">izug.refegovservice.content.e_gov_service.EGovService</property>
-  <property name="schema">izug.refegovservice.content.e_gov_service.IEGovService</property>
+  <property name="schema">izug.refegovservice.content.e_gov_service.IEGovServiceSchema</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">

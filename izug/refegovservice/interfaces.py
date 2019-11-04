@@ -3,25 +3,23 @@ from zope.interface import Interface
 
 
 class IRefEGovService(Interface):
-    """Marker interfaces for refegovservice"""
+    """ Marker interface for RefEGovService """
 
 
 class IEGovService(Interface):
-    """Marker interfaces for refegovservice"""
+    """ Marker interface for EGovService"""
 
 
 # Old names for these interfaces - probably unused, but deprecated to make sure
-IEgovLeistung = IRefEGovService
+IEgovLeistung = IEGovService
 IRefEgovService = IRefEGovService
 
 deprecated(
     ['IEgovLeistung'],
-    'Marker interface has been deprecated in favour of new dexterity schema '
-    'izug.refegovservice.content.e_gov_service.IEGovService'
+    'This marker interface has been deprecated in favour of IEGovService'
     ''
 )
 deprecated(
     ['IRefEgovService'],
-    'Marker interface has been deprecated in favour of new dexterity schema '
-    'izug.refegovservice.content.ref_e_gov_service.IRefEGovService'
+    'This marker interface has been deprecated in favour of IRefEGovService'
 )

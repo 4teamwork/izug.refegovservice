@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from izug.refegovservice.interfaces import IEGovService
 from plone.app.textfield import RichText
 from plone.app.textfield.widget import RichTextWidget
 from plone.autoform import directives as form
@@ -9,13 +10,13 @@ from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IEditForm
 from z3c.relationfield import RelationChoice
 from zope import schema
-from zope.interface import implementer
+from zope.interface import implements
 
 from plone.app.dexterity import MessageFactory as DXMF
 from izug.refegovservice import _
 
 
-class IEGovService(model.Schema):
+class IEGovServiceSchema(model.Schema):
     """ Marker interface and Dexterity Python Schema for EGovService
     """
     # Copy IBasic behavior to change description title to 'description'!
@@ -120,7 +121,7 @@ class IEGovService(model.Schema):
     )
 
 
-@implementer(IEGovService)
 class EGovService(Item):
     """
     """
+    implements(IEGovService)
