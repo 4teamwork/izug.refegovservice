@@ -3,7 +3,6 @@
   xmlns:zcml="http://namespaces.zope.org/zcml"
   i18n_domain="plone">
 
-  <configure zcml:condition="installed AccessControl.security">
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
@@ -17,8 +16,5 @@
         title="izug.refegovservice: Add EGovService"
     />
 
-
-
-  </configure>
 
 </configure>
