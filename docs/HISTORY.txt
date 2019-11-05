@@ -9,6 +9,7 @@ Changelog
   [djowett-ftw]
 - Deprecate marker interfaces in interfaces module - use Dexterity schemas
   instead if you require a marker interface. [djowett-ftw]
+- Add uninstall profile.  [djowett-ftw]
 
 
 2.1.0 (2017-01-06)

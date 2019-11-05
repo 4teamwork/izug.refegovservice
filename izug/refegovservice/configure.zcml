@@ -33,6 +33,15 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="Uninstall izug.refegovservice"
+        directory="profiles/uninstall"
+        description="Uninstalls the Izug refegov service"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        />
+
     <include package=".upgrades" />
 
     <browser:page
