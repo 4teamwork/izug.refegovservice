@@ -26,7 +26,6 @@
   <property name="behaviors" purge="false">
 
     <element value="plone.app.content.interfaces.INameFromTitle"/>
-    <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
     <!-- categorization includes the language field -->
     <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
     <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
