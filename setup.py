@@ -41,8 +41,9 @@ setup(name='izug.refegovservice',
 
       install_requires=[
           'plone.api',
+          'plone.app.dexterity',
+          'plone.app.relationfield',
           'setuptools',
-          'suds',
           'ftw.upgrade',
           'ftw.table',
       ],

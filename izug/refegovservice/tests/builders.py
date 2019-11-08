@@ -1,16 +1,17 @@
-from ftw.builder.archetypes import ArchetypesBuilder
+from ftw.builder.dexterity import DexterityBuilder
 from ftw.builder import builder_registry
 
 
-class EgovLeistungBuilder(ArchetypesBuilder):
+class EGovServiceBuilder(DexterityBuilder):
 
-    portal_type = 'EgovLeistung'
-
-builder_registry.register('egov leistung', EgovLeistungBuilder)
+    portal_type = 'izug.refegovservice.egovservice'
 
 
-class RefEgovServiceBuilder(ArchetypesBuilder):
+builder_registry.register('egov service', EGovServiceBuilder)
 
-    portal_type = 'RefEgovService'
+
+class RefEgovServiceBuilder(DexterityBuilder):
+
+    portal_type = 'izug.refegovservice.refegovservice'
 
 builder_registry.register('ref egov service', RefEgovServiceBuilder)

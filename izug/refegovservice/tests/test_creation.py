@@ -3,6 +3,7 @@ from ftw.builder import create
 from ftw.testbrowser import browsing
 from izug.refegovservice.testing import IZUG_REFEGOVSERVICE_FUNCTIONAL_TESTING
 from plone.app.testing import login
+from plone.app.textfield.value import RichTextValue
 from unittest2 import TestCase
 
 
@@ -16,34 +17,40 @@ class TestCreation(TestCase):
         self.portal = self.layer['portal']
         self.portal_url = self.portal.portal_url()
 
-        self.leistung = create(Builder('egov leistung')
-                               .titled('Leistung')
-                               .having(description='The Description',
-                                       generalinformation='Some infos',
-                                       result='A result'))
+        self.leistung = create(Builder('egov service')
+                               .titled(u'Leistung')
+                               .having(description=u'The Description',
+                                       generalinformation=RichTextValue('Some infos'),
+                                       result=RichTextValue('A result')))
         self.refservice = create(Builder('ref egov service')
-                                 .titled('Reference')
+                                 .titled(u'Reference')
                                  .having(referencedService=self.leistung))
 
-        self.leistungde = create(Builder('egov leistung')
-                                 .titled('Leistung DE')
-                                 .having(generalinformation='Einige Infos',
-                                         result='Ein Resultat',
+        self.leistungde = create(Builder('egov service')
+                                 .titled(u'Leistung DE')
+                                 .having(generalinformation=RichTextValue('Einige Infos'),
+                                         result=RichTextValue('Ein Resultat'),
                                          language='de'))
         self.refservicede = create(Builder('ref egov service')
-                                   .titled('Referenz')
+                                   .titled(u'Referenz')
                                    .having(referencedService=self.leistungde))
 
     def test_fti(self):
-        self.assertIn('RefEgovService', self.portal.portal_types.objectIds())
-        self.assertIn('EgovLeistung', self.portal.portal_types.objectIds())
+        self.assertIn(
+            'izug.refegovservice.egovservice',
+            self.portal.portal_types.objectIds()
+        )
+        self.assertIn(
+            'izug.refegovservice.refegovservice',
+            self.portal.portal_types.objectIds()
+        )
 
     @browsing
     def test_description_is_not_rendered(self, browser):
         browser.login().visit(self.refservice)
         self.assertNotIn('The Description',
                          browser.css('h2'),
-                         'Description should no be rendered.')
+                         'Description should not be rendered.')
 
     @browsing
     def test_creation_render(self, browser):
@@ -86,13 +93,13 @@ class TestCreation(TestCase):
             .with_password('demo14')
             .with_roles('Manager'))
 
-        self.leistung = create(Builder('egov leistung')
-                         .titled('Leistung'))
+        self.leistung = create(Builder('egov service')
+                         .titled(u'Leistung'))
 
         login(self.portal, self.user2.getUser().getName())
 
         self.refservice = create(Builder('ref egov service')
-                           .titled('Referenz')
+                           .titled(u'Referenz')
                            .having(referencedService=self.leistung))
 
         browser.login().visit(self.leistung)

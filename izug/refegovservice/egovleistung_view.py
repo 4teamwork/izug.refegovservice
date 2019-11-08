@@ -23,7 +23,7 @@ class EgovLeistungView(BrowserView):
 class RefEgovLeistungView(BrowserView):
 
     def translate(self, msgid):
-        lang = self.context.getReferencedService().Language()
+        lang = self.context.referencedService.to_object.Language()
         if not lang:
             lang = 'de'
         return translate(msgid,
@@ -33,13 +33,16 @@ class RefEgovLeistungView(BrowserView):
 
 
 def link_orgunit(item, value):
-    orgunit = item.getObject().getOrgunit()
+    orgunit_rel = item.getObject().orgunit
 
-    if orgunit:
+    if orgunit_rel:
+        # Avoid waking up objects
+        catalog = api.portal.get_tool('portal_catalog')
+        rel_brain = catalog(path={'query': orgunit_rel.to_path, 'depth': 0})[0]
         return '<a href="%s" title="%s">%s</a>' % (
-            orgunit.absolute_url(),
-            orgunit.Description(),
-            orgunit.Title())
+            rel_brain.getURL(),
+            rel_brain.Description,
+            rel_brain.Title)
     else:
         return ''
 
@@ -56,7 +59,7 @@ class EgovLeistungOverview(BrowserView):
     def contents(self):
         catalog = api.portal.get_tool('portal_catalog')
         return catalog(
-            portal_type='EgovLeistung',
+            portal_type='izug.refegovservice.egovservice',
             path='/'.join(self.context.getPhysicalPath()),
             sort_on='sortable_title',
         )

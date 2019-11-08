@@ -1,8 +1,12 @@
 izug.refegovservice
 ===================
 
-izug.refegovservice provides a content type which collects data throught a
-webservice
+izug.refegovservice provides one content type which describes a government service
+and a further content type that can display the former elsewhere on the site by
+reference.
+
+Note that this product used to describe webservices (WDSL), but this feature
+has been discontinued.
 
 
 Usage
@@ -15,6 +19,10 @@ Add ``izug.refegovservice`` to your buildout configuration:
   [instance]
   eggs =
       izug.refegovservice
+
+- Run buildout
+
+- Install ``izug.refegovservice`` (and optionally ``ftw.table``) in portal_setup
 
 
 Copyright

@@ -13,8 +13,16 @@
     <i18n:registerTranslations directory="locales" />
     <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 
-
+    <include file="permissions.zcml" />
+    <include package="plone.app.relationfield" />
     <include package="ftw.table" />
+
+    <include zcml:condition="installed ftw.theming" file="resources.zcml" />
+
+    <browser:resourceDirectory
+        name="izug.refegovservice.resources"
+        directory="resources"
+        />
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
@@ -25,21 +33,16 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="Uninstall izug.refegovservice"
+        directory="profiles/uninstall"
+        description="Uninstalls the Izug refegov service"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        />
+
     <include package=".upgrades" />
-
-    <class class=".refegovservice.RefEgovService">
-        <require
-            permission="zope2.View"
-            interface=".interfaces.IRefEgovService"
-            />
-    </class>
-
-    <class class=".egovleistung.EgovLeistung">
-        <require
-            permission="zope2.View"
-            interface=".interfaces.IEgovLeistung"
-            />
-    </class>
 
     <browser:page
         for="*"
