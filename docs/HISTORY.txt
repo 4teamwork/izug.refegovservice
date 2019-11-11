@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.0.2 (unreleased)
+3.0.2 (2019-11-11)
 ------------------
 
 - Fix permission names in lawgiver action groups. [jone]
