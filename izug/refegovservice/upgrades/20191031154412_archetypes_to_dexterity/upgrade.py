@@ -8,7 +8,7 @@ class ArchetypesToDexterity(UpgradeStep):
 
     def __call__(self):
         self.install_upgrade_profile()
-        self.setup_install_profile('profile-plone.app.relationfield:default')
+        self.ensure_profile_installed('profile-plone.app.relationfield:default')
         self.migrate_egovservice()
         self.migrate_refegovservice()
 
