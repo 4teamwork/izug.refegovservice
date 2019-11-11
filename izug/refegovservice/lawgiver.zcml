@@ -7,12 +7,12 @@
 
     <lawgiver:map_permissions
         action_group="add"
-        permissions="izug.refegovservice: Add RefEgovService"
+        permissions="izug.refegovservice: Add RefEGovService"
         />
 
     <lawgiver:map_permissions
         action_group="add egovleistung"
-        permissions="izug.refegovservice: Add EgovLeistung"
+        permissions="izug.refegovservice: Add EGovService"
         />
 
 </configure>
