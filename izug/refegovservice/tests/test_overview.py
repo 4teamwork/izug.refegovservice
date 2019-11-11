@@ -4,7 +4,7 @@ from ftw.builder import create
 from ftw.table.helper import readable_date_time_text
 from ftw.testbrowser import browsing
 from izug.refegovservice.testing import IZUG_REFEGOVSERVICE_FUNCTIONAL_TESTING
-from unittest2 import TestCase
+from unittest import TestCase
 
 
 class TestOverview(TestCase):

@@ -4,7 +4,7 @@ from ftw.testbrowser import browsing
 from izug.refegovservice.testing import IZUG_REFEGOVSERVICE_FUNCTIONAL_TESTING
 from plone.app.testing import login
 from plone.app.textfield.value import RichTextValue
-from unittest2 import TestCase
+from unittest import TestCase
 
 
 class TestCreation(TestCase):
