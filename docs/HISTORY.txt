@@ -5,7 +5,7 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add environment variable for disabling AT->DX migration. [jone]
 
 
 3.0.0 (2019-11-11)

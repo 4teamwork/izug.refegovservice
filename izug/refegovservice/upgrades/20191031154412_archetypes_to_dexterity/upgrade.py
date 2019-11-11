@@ -1,5 +1,6 @@
 from ftw.upgrade import UpgradeStep
 from ftw.upgrade.migration import InplaceMigrator
+import os
 
 
 class ArchetypesToDexterity(UpgradeStep):
@@ -9,6 +10,10 @@ class ArchetypesToDexterity(UpgradeStep):
     def __call__(self):
         self.install_upgrade_profile()
         self.ensure_profile_installed('profile-plone.app.relationfield:default')
+
+        if os.environ.get('IZUG_REFEGOVSERVICE_SKIP_DEXTERITY_MIGRATION', '').lower() == 'true':
+            return
+
         self.migrate_egovservice()
         self.migrate_refegovservice()
 
