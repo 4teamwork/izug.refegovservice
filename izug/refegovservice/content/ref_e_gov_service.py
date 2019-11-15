@@ -10,8 +10,11 @@ from z3c.relationfield import RelationChoice
 from zope import schema
 from zope.interface import implements
 
-from plone.app.dexterity import MessageFactory as DXMF
 from izug.refegovservice import _
+try:
+    from plone.app.dexterity import MessageFactory as DXMF
+except ImportError:
+    from plone.app.dexterity import _ as DXMF
 
 
 class IRefEGovServiceSchema(model.Schema):

@@ -9,6 +9,12 @@ Note that this product used to describe webservices (WDSL), but this feature
 has been discontinued.
 
 
+Compatibility
+-------------
+
+``izug.refegovservice`` is compatible with Plone 4.3 and Plone 5.1.
+
+
 Usage
 -----
 
