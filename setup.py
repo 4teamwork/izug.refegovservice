@@ -14,17 +14,18 @@ tests_require = ['ftw.builder',
 setup(name='izug.refegovservice',
       version=version,
       description="RefEgovService for izug/zug.ch",
-      long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=(open("README.rst").read() + "\n" +
+                        open(os.path.join("docs", "HISTORY.txt")).read()),
 
       # Get more strings from
       # http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
-        'Framework :: Plone',
-        'Framework :: Plone :: 4.3',
-        'Programming Language :: Python',
-        'Topic :: Software Development :: Libraries :: Python Modules',
-        ],
+          'Framework :: Plone',
+          'Framework :: Plone :: 4.3',
+          'Framework :: Plone :: 5.1',
+          'Programming Language :: Python',
+          'Topic :: Software Development :: Libraries :: Python Modules',
+      ],
 
       keywords='izug refegovservice',
       author='4teamwork GmbH',
