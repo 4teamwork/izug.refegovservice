@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from izug.refegovservice.interfaces import IEGovService
 from plone.app.textfield import RichText
-from plone.app.textfield.widget import RichTextWidget
 from plone.autoform import directives as form
 from plone.dexterity.content import Item
 from plone.formwidget.contenttree import ObjPathSourceBinder
@@ -45,73 +44,61 @@ class IEGovServiceSchema(model.Schema):
     form.no_omit(IEditForm, 'title', 'description')
     form.no_omit(IAddForm, 'title', 'description')
 
-    form.widget('summary', RichTextWidget, rows=5)
     summary = RichText(
         title=_(u'summary', default=u'Summary'),
         required=False
     )
 
-    form.widget('generalinformation', RichTextWidget, rows=5)
     generalinformation = RichText(
         title=_(u'generalinformation'),
         required=False
     )
 
-    form.widget('precondition', RichTextWidget, rows=5)
     precondition = RichText(
         title=_(u'precondition'),
         required=False
     )
 
-    form.widget('procedure', RichTextWidget, rows=5)
     procedure = RichText(
         title=_(u'procedure'),
         required=False
     )
 
-    form.widget('forms', RichTextWidget, rows=5)
     forms = RichText(
         title=_(u'forms'),
         required=False
     )
 
-    form.widget('requireddocuments', RichTextWidget, rows=5)
     requireddocuments = RichText(
         title=_(u'requireddocuments'),
         required=False
     )
 
-    form.widget('result', RichTextWidget, rows=5)
     result = RichText(
         title=_(u'result'),
         required=False
     )
 
-    form.widget('cost', RichTextWidget, rows=5)
     cost = RichText(
         title=_(u'cost'),
         required=False
     )
 
-    form.widget('legalbases', RichTextWidget, rows=5)
     legalbases = RichText(
         title=_(u'legalbases'),
         required=False
     )
 
-    form.widget('additionalinformation', RichTextWidget, rows=5)
     additionalinformation = RichText(
         title=_(u'additionalinformation'),
         required=False
     )
 
-    form.widget('annotations', RichTextWidget, rows=5)
     annotations = RichText(
         title=_(u'annotations'),
         required=False
     )
 
-    form.widget('address', RichTextWidget, rows=4)
     address = RichText(
         title=_(u'address'),
         required=False,
