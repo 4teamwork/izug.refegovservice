@@ -26,6 +26,7 @@
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
+        zcml:condition="not-have plone-5"
         name="default"
         title="izug.refegovservice"
         directory="profiles/default"
@@ -34,6 +35,16 @@
         />
 
     <genericsetup:registerProfile
+        zcml:condition="have plone-5"
+        name="default"
+        title="izug.refegovservice"
+        directory="profiles/default_plone5"
+        description="Izug refegov service"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:registerProfile
+        zcml:condition="not-have plone-5"
         name="uninstall"
         title="Uninstall izug.refegovservice"
         directory="profiles/uninstall"
@@ -42,10 +53,20 @@
         for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
         />
 
+    <genericsetup:registerProfile
+        zcml:condition="have plone-5"
+        name="uninstall"
+        title="Uninstall izug.refegovservice"
+        directory="profiles/uninstall_plone5"
+        description="Uninstalls the Izug refegov service"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        />
+
     <include package=".upgrades" />
 
     <browser:page
-        for="*"
+        for="izug.refegovservice.interfaces.IEGovService"
         name="egovleistung_view"
         class=".egovleistung_view.EgovLeistungView"
         template="templates/egovleistung_view.pt"
@@ -61,7 +82,7 @@
         />
 
     <browser:page
-        for="*"
+        for="izug.refegovservice.interfaces.IRefEGovService"
         name="refegovservice_view"
         class=".egovleistung_view.RefEgovLeistungView"
         permission="zope2.View"

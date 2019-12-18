@@ -5,7 +5,8 @@ Changelog
 3.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add seperate Plone 5 profile. [tinagerber]
+- Replace plone.app.relationfield with ftw.referencewidget. [tinagerber]
 
 
 3.1.0 (2019-11-15)

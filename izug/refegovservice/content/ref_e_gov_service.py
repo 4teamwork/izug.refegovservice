@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
+from ftw.referencewidget.sources import ReferenceObjSourceBinder
+from ftw.referencewidget.widget import ReferenceWidgetFactory
 from izug.refegovservice.interfaces import IRefEGovService
 from plone.autoform import directives
+from plone.autoform import directives as form
 from plone.dexterity.content import Item
 from plone.supermodel import model
-from plone.formwidget.contenttree import ObjPathSourceBinder
 from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IEditForm
-from z3c.relationfield import RelationChoice
+from z3c.relationfield.schema import RelationChoice
 from zope import schema
 from zope.interface import implements
 
@@ -33,12 +35,14 @@ class IRefEGovServiceSchema(model.Schema):
     directives.no_omit(IEditForm, 'title')
     directives.no_omit(IAddForm, 'title')
 
+    form.widget(referencedService=ReferenceWidgetFactory)
     referencedService = RelationChoice(
         title=_(u'referencedService', default=u'Referenced Service'),
         required=False,
-        source=ObjPathSourceBinder(
-            portal_type=['izug.refegovservice.egovservice']
-        )
+        source=ReferenceObjSourceBinder(
+            override=True,
+            selectable=['izug.refegovservice.egovservice'],
+        ),
     )
 
 

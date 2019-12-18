@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
+from ftw.referencewidget.sources import DefaultSelectable
+from ftw.referencewidget.sources import ReferenceObjSourceBinder
+from ftw.referencewidget.widget import ReferenceWidgetFactory
 from izug.refegovservice.interfaces import IEGovService
 from plone.app.textfield import RichText
-from plone.app.textfield.widget import RichTextWidget
 from plone.autoform import directives as form
 from plone.dexterity.content import Item
-from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.supermodel import model
 from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IEditForm
-from z3c.relationfield import RelationChoice
+from z3c.relationfield.schema import RelationChoice
 from zope import schema
 from zope.interface import implements
 
@@ -17,6 +18,13 @@ try:
     from plone.app.dexterity import MessageFactory as DXMF
 except ImportError:
     from plone.app.dexterity import _ as DXMF
+
+
+class FilterByPathSelectable(DefaultSelectable):
+
+    def is_selectable(self):
+        """ Allow to reference any path"""
+        return True
 
 
 class IEGovServiceSchema(model.Schema):
@@ -45,82 +53,73 @@ class IEGovServiceSchema(model.Schema):
     form.no_omit(IEditForm, 'title', 'description')
     form.no_omit(IAddForm, 'title', 'description')
 
-    form.widget('summary', RichTextWidget, rows=5)
     summary = RichText(
         title=_(u'summary', default=u'Summary'),
         required=False
     )
 
-    form.widget('generalinformation', RichTextWidget, rows=5)
     generalinformation = RichText(
         title=_(u'generalinformation'),
         required=False
     )
 
-    form.widget('precondition', RichTextWidget, rows=5)
     precondition = RichText(
         title=_(u'precondition'),
         required=False
     )
 
-    form.widget('procedure', RichTextWidget, rows=5)
     procedure = RichText(
         title=_(u'procedure'),
         required=False
     )
 
-    form.widget('forms', RichTextWidget, rows=5)
     forms = RichText(
         title=_(u'forms'),
         required=False
     )
 
-    form.widget('requireddocuments', RichTextWidget, rows=5)
     requireddocuments = RichText(
         title=_(u'requireddocuments'),
         required=False
     )
 
-    form.widget('result', RichTextWidget, rows=5)
     result = RichText(
         title=_(u'result'),
         required=False
     )
 
-    form.widget('cost', RichTextWidget, rows=5)
     cost = RichText(
         title=_(u'cost'),
         required=False
     )
 
-    form.widget('legalbases', RichTextWidget, rows=5)
     legalbases = RichText(
         title=_(u'legalbases'),
         required=False
     )
 
-    form.widget('additionalinformation', RichTextWidget, rows=5)
     additionalinformation = RichText(
         title=_(u'additionalinformation'),
         required=False
     )
 
-    form.widget('annotations', RichTextWidget, rows=5)
     annotations = RichText(
         title=_(u'annotations'),
         required=False
     )
 
-    form.widget('address', RichTextWidget, rows=4)
     address = RichText(
         title=_(u'address'),
         required=False,
     )
 
+    form.widget(orgunit=ReferenceWidgetFactory)
     orgunit = RelationChoice(
         title=_(u'orgunit', default=u'OrgUnit'),
         required=False,
-        source=ObjPathSourceBinder()
+        source=ReferenceObjSourceBinder(
+            selectable_class=FilterByPathSelectable),
+        default=None,
     )
 
 
