@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
+from ftw.referencewidget.sources import DefaultSelectable
+from ftw.referencewidget.sources import ReferenceObjSourceBinder
+from ftw.referencewidget.widget import ReferenceWidgetFactory
 from izug.refegovservice.interfaces import IEGovService
 from plone.app.textfield import RichText
 from plone.autoform import directives as form
 from plone.dexterity.content import Item
-from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.supermodel import model
 from z3c.form.interfaces import IAddForm
 from z3c.form.interfaces import IEditForm
-from z3c.relationfield import RelationChoice
+from z3c.relationfield.schema import RelationChoice
 from zope import schema
 from zope.interface import implements
 
@@ -16,6 +18,13 @@ try:
     from plone.app.dexterity import MessageFactory as DXMF
 except ImportError:
     from plone.app.dexterity import _ as DXMF
+
+
+class FilterByPathSelectable(DefaultSelectable):
+
+    def is_selectable(self):
+        """ Allow to reference any path"""
+        return True
 
 
 class IEGovServiceSchema(model.Schema):
@@ -104,10 +113,13 @@ class IEGovServiceSchema(model.Schema):
         required=False,
     )
 
+    form.widget(orgunit=ReferenceWidgetFactory)
     orgunit = RelationChoice(
         title=_(u'orgunit', default=u'OrgUnit'),
         required=False,
-        source=ObjPathSourceBinder()
+        source=ReferenceObjSourceBinder(
+            selectable_class=FilterByPathSelectable),
+        default=None,
     )
 
 
