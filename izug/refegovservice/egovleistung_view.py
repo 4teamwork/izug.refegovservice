@@ -35,7 +35,7 @@ class RefEgovLeistungView(BrowserView):
 def link_orgunit(item, value):
     orgunit_rel = item.getObject().orgunit
 
-    if orgunit_rel:
+    if orgunit_rel and not orgunit_rel.isBroken():
         # Avoid waking up objects
         catalog = api.portal.get_tool('portal_catalog')
         rel_brain = catalog(path={'query': orgunit_rel.to_path, 'depth': 0})[0]

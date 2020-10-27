@@ -5,6 +5,7 @@ from ftw.table.helper import readable_date_time_text
 from ftw.testbrowser import browsing
 from izug.refegovservice.testing import IZUG_REFEGOVSERVICE_FUNCTIONAL_TESTING
 from unittest import TestCase
+import transaction
 
 
 class TestOverview(TestCase):
@@ -39,6 +40,22 @@ class TestOverview(TestCase):
              ['A Leistung', u'B\xe4m', readable_date_time_text(
                  None, self.modification_date)],
              ['Z Leistung', u'B\xe4m', readable_date_time_text(
+                 None, self.modification_date)]],
+            browser.css('table.listing').first.lists())
+
+    @browsing
+    def test_overview_lists_services_does_not_break_if_orgunit_is_deleted(self, browser):
+
+        self.to_reference.aq_parent.manage_delObjects(ids=[self.to_reference.id])
+        transaction.commit()
+
+        browser.login().visit(self.folder, view='egovleistung_overview')
+
+        self.assertEquals(
+            [['Title', 'OrgUnit', 'Modified'],
+             ['A Leistung', u'', readable_date_time_text(
+                 None, self.modification_date)],
+             ['Z Leistung', u'', readable_date_time_text(
                  None, self.modification_date)]],
             browser.css('table.listing').first.lists())
 
