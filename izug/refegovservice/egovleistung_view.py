@@ -38,7 +38,10 @@ def link_orgunit(item, value):
     if orgunit_rel and not orgunit_rel.isBroken():
         # Avoid waking up objects
         catalog = api.portal.get_tool('portal_catalog')
-        rel_brain = catalog(path={'query': orgunit_rel.to_path, 'depth': 0})[0]
+        result = catalog(path={'query': orgunit_rel.to_path, 'depth': 0})
+        if not result:
+            return ''
+        rel_brain = result[0]
         return '<a href="%s" title="%s">%s</a>' % (
             rel_brain.getURL(),
             rel_brain.Description,
