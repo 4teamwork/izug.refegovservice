@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.1.4 (unreleased)
+3.1.4 (2020-12-01)
 ------------------
 
  Service overview no longer breaks if orgunit is private. [mathias.leimgruber]
