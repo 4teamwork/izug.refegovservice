@@ -5,7 +5,7 @@ Changelog
 3.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix rendering issue, which resulted in a addition p tag. [mathias.leimgruber]
 
 
 3.1.4 (2020-12-01)
